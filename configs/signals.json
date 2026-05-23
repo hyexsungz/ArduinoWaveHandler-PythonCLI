@@ -1,0 +1,78 @@
+{
+  "name": "ARDUINOWAVEHANDLER_SIGNALS",
+  "version": "1.0.0",
+  "description": "Signal definitions, wave patterns, detection profiles, and matching rules",
+
+  "signals": {
+    "base_wave": {
+      "type": "sine",
+      "amplitude": 1.0,
+      "frequency": 2.0,
+      "samples": 128,
+      "encoding": "uint8",
+      "normalization": "0-255"
+    },
+
+    "heartbeat_signal": {
+      "type": "pulse",
+      "pattern": [255, 0, 255, 0, 255],
+      "repeat": true,
+      "interval_ms": 3000
+    },
+
+    "handshake_signal": {
+      "type": "challenge_response",
+      "encoding": "sha256",
+      "payload_size": 16,
+      "secure": true
+    },
+
+    "noise_profile_low": {
+      "type": "noise",
+      "level": 3,
+      "distribution": "uniform"
+    },
+
+    "noise_profile_high": {
+      "type": "noise",
+      "level": 10,
+      "distribution": "uniform"
+    }
+  },
+
+  "detection": {
+    "similarity_threshold": 0.85,
+    "match_algorithm": "mean_absolute_difference",
+    "allow_noise": true,
+    "normalize_input": true
+  },
+
+  "processing": {
+    "window_size": 128,
+    "step_size": 1,
+    "real_time": true
+  },
+
+  "matching_rules": {
+    "priority": [
+      "base_wave",
+      "handshake_signal",
+      "heartbeat_signal"
+    ],
+    "fallback": "unknown_signal",
+    "max_distance": 255
+  },
+
+  "analysis": {
+    "enable_stats": true,
+    "compute_variance": true,
+    "compute_mean": true,
+    "compute_median": true
+  },
+
+  "logging": {
+    "log_matches": true,
+    "log_failures": true,
+    "log_noise_events": false
+  }
+}

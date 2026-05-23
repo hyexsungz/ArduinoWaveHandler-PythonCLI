@@ -1,0 +1,68 @@
+============================================================
+ARDUINOWAVEHANDLER COMMAND LIST
+============================================================
+
+SYSTEM COMMANDS
+------------------------------------------------------------
+start                -> Start engine runtime
+stop                 -> Stop all services
+restart              -> Restart engine
+status               -> Show system status
+boot                 -> Boot full system stack
+shutdown             -> Shutdown system safely
+runtime              -> Show runtime metrics
+version              -> Show version info
+
+DEVICE COMMANDS
+------------------------------------------------------------
+scan                 -> Scan all serial/usb devices
+scan serial          -> Scan serial ports only
+scan usb             -> Scan usb devices only
+watch                -> Start device watcher
+watch stop           -> Stop device watcher
+identify             -> Identify connected boards
+ports                -> List all active ports
+vidpid               -> Scan VID/PID devices
+
+AUTO CONNECT
+------------------------------------------------------------
+connect              -> Auto connect to best device
+disconnect           -> Disconnect active device
+reconnect            -> Reconnect last device
+autoconnect on       -> Enable auto connect
+autoconnect off      -> Disable auto connect
+
+SIGNAL ENGINE
+------------------------------------------------------------
+signal gen           -> Generate test waveform
+signal detect        -> Run signal detection
+signal match         -> Match signals
+signal clear         -> Clear signal cache
+benchmark            -> Run signal benchmark
+
+HANDSHAKE / SECURITY
+------------------------------------------------------------
+handshake start      -> Start device handshake
+handshake verify     -> Verify device session
+auth reset           -> Reset authentication
+secure mode on       -> Enable secure mode
+secure mode off      -> Disable secure mode
+
+LOGGING / DEBUG
+------------------------------------------------------------
+log on               -> Enable logging
+log off              -> Disable logging
+debug on             -> Enable debug mode
+debug off            -> Disable debug mode
+errors               -> Show error logs
+clear logs           -> Clear logs
+
+CONFIG
+------------------------------------------------------------
+config show          -> Show configuration
+config reload        -> Reload configs
+config reset         -> Reset to default
+
+============================================================
+END OF COMMAND LIST
+============================================================

@@ -1,0 +1,63 @@
+{
+  "name": "ARDUINOWAVEHANDLER_HANDSHAKES",
+  "version": "1.0.0",
+  "description": "Handshake configuration for secure device pairing and validation",
+
+  "handshake_protocol": {
+    "enabled": true,
+    "version": "v1",
+    "timeout_ms": 3000,
+    "retry_attempts": 3,
+    "secure_mode": true
+  },
+
+  "challenge": {
+    "length_bytes": 16,
+    "encoding": "hex",
+    "algorithm": "sha256",
+    "include_timestamp": true,
+    "timestamp_format": "ms"
+  },
+
+  "response": {
+    "algorithm": "sha256",
+    "expected_transform": "challenge_token_sha256",
+    "verify_crc": true,
+    "verify_session": true,
+    "session_length": 16
+  },
+
+  "packet_format": {
+    "endianness": "big",
+    "structure": [
+      "timestamp:Q",
+      "length:I",
+      "payload:bytes",
+      "crc:I",
+      "sha256:32bytes",
+      "session:16bytes"
+    ]
+  },
+
+  "security": {
+    "enable_replay_protection": true,
+    "enable_session_lock": true,
+    "max_failed_attempts": 5,
+    "lockout_seconds": 10,
+    "verify_integrity": true
+  },
+
+  "states": {
+    "INIT": 0,
+    "CHALLENGE_SENT": 1,
+    "WAITING_RESPONSE": 2,
+    "ESTABLISHED": 3,
+    "FAILED": 4
+  },
+
+  "logging": {
+    "log_handshakes": true,
+    "log_failures": true,
+    "log_success": true
+  }
+}

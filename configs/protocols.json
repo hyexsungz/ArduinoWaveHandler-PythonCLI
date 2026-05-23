@@ -1,0 +1,91 @@
+{
+  "name": "ARDUINOWAVEHANDLER_PROTOCOLS",
+  "version": "1.0.0",
+  "description": "Communication protocol definitions for serial, USB, and wave-based transport layers",
+
+  "protocols": {
+    "arduino_protocol": {
+      "id": 1,
+      "type": "serial",
+      "frame_format": "binary",
+      "endianness": "big",
+      "max_payload": 1024,
+      "checksum": "crc32",
+      "secure": false
+    },
+
+    "avr_protocol": {
+      "id": 2,
+      "type": "bootloader",
+      "frame_format": "binary",
+      "endianness": "big",
+      "max_payload": 512,
+      "checksum": "crc16",
+      "secure": false
+    },
+
+    "bootloader_protocol": {
+      "id": 3,
+      "type": "firmware",
+      "frame_format": "packet",
+      "endianness": "big",
+      "max_payload": 2048,
+      "checksum": "sha256",
+      "secure": true
+    },
+
+    "ping_protocol": {
+      "id": 4,
+      "type": "diagnostic",
+      "frame_format": "minimal",
+      "interval_ms": 1000,
+      "timeout_ms": 500,
+      "response_required": true
+    },
+
+    "signal_protocol": {
+      "id": 5,
+      "type": "wave",
+      "frame_format": "stream",
+      "encoding": "uint8",
+      "max_payload": 4096,
+      "compression": false
+    },
+
+    "uart_protocol": {
+      "id": 6,
+      "type": "serial",
+      "frame_format": "raw",
+      "baud_flexible": true,
+      "default_baud": 115200,
+      "parity": "none",
+      "stop_bits": 1
+    },
+
+    "usb_serial_protocol": {
+      "id": 7,
+      "type": "usb_serial",
+      "frame_format": "framed",
+      "endianness": "big",
+      "checksum": "crc32+sha256",
+      "session_based": true
+    }
+  },
+
+  "rules": {
+    "auto_select": true,
+    "priority": [
+      "usb_serial_protocol",
+      "uart_protocol",
+      "arduino_protocol",
+      "signal_protocol"
+    ],
+    "fallback": "uart_protocol"
+  },
+
+  "security": {
+    "enable_encryption": false,
+    "enable_integrity_check": true,
+    "session_timeout_ms": 10000
+  }
+}

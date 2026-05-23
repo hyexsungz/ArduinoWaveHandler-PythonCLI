@@ -1,0 +1,73 @@
+{
+  "name": "ARDUINOWAVEHANDLER_RUNTIME",
+  "version": "1.0.0",
+  "description": "Runtime configuration for engine, app cycle, watcher, and system execution behavior",
+
+  "runtime": {
+    "enabled": true,
+    "mode": "AUTO",
+    "tick_rate_ms": 50,
+    "cycle_delay_ms": 2000,
+    "watchdog": true,
+    "auto_restart": true
+  },
+
+  "engine": {
+    "enabled": true,
+    "loop_delay_ms": 100,
+    "max_cycles": 0,
+    "performance_tracking": true,
+    "cycle_logging": false
+  },
+
+  "app": {
+    "enabled": true,
+    "auto_start": true,
+    "scan_on_boot": true,
+    "device_update_interval_ms": 2000,
+    "error_recovery": true
+  },
+
+  "watcher": {
+    "enabled": true,
+    "auto_detect": true,
+    "poll_interval_ms": 1000,
+    "log_events": true,
+    "track_history": true
+  },
+
+  "auto_connect": {
+    "enabled": true,
+    "retry_attempts": 3,
+    "connect_on_detect": true,
+    "heartbeat_enabled": true,
+    "heartbeat_interval_ms": 3000
+  },
+
+  "limits": {
+    "max_devices_tracked": 500,
+    "max_errors": 100,
+    "max_history": 1000,
+    "buffer_limit_bytes": 4096
+  },
+
+  "logging": {
+    "enabled": true,
+    "log_level": "INFO",
+    "log_cycles": false,
+    "log_connections": true,
+    "log_errors": true
+  },
+
+  "security": {
+    "safe_mode": false,
+    "require_verification": false,
+    "session_isolation": true
+  },
+
+  "performance": {
+    "cpu_throttle_ms": 5,
+    "gc_interval_cycles": 100,
+    "adaptive_tick": true
+  }
+}

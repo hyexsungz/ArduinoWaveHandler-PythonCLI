@@ -1,0 +1,112 @@
+============================================================
+ARDUINOWAVEHANDLER HELP CENTER
+============================================================
+
+WHAT IS ARDUINOWAVEHANDLER
+------------------------------------------------------------
+A real-time device detection and signal processing system
+for Arduino, ESP, STM32, and USB serial-based hardware.
+
+It provides:
+- USB / Serial device scanning
+- VID/PID identification
+- Signal waveform generation
+- Device auto-connect system
+- Secure handshake layer
+- Runtime engine control
+
+============================================================
+BASIC USAGE
+============================================================
+
+START SYSTEM:
+    python main.py
+
+START ENGINE ONLY:
+    engine.start()
+
+SCAN DEVICES:
+    scan
+    or run app.scan()
+
+WATCH DEVICES LIVE:
+    watch
+
+SHOW STATUS:
+    status
+
+============================================================
+DEVICE DETECTION
+============================================================
+
+The system automatically detects:
+- Arduino Uno / Mega / Nano / Leonardo
+- ESP32 / ESP8266
+- STM32 boards
+- Teensy boards
+- USB Serial chips (CH340 / CP210x / FTDI)
+
+Each device is analyzed using:
+- Port name
+- HWID
+- VID/PID
+- Manufacturer string
+- Description matching
+
+============================================================
+SIGNAL SYSTEM
+============================================================
+
+Wave system supports:
+- Sine waves
+- Square waves
+- Triangle waves
+- Pulse signals
+- Noise simulation
+
+Used for:
+- Signal matching
+- Device fingerprinting
+- Pattern recognition
+
+============================================================
+AUTO CONNECT
+============================================================
+
+Automatically connects to best matching device based on:
+- VID/PID priority
+- Board signature
+- Stable port detection
+- Signal confidence score
+
+============================================================
+SECURITY / HANDSHAKE
+============================================================
+
+Optional secure handshake system:
+- Challenge-response validation
+- SHA256 integrity check
+- Session locking
+- Replay protection
+
+============================================================
+TROUBLESHOOTING
+============================================================
+
+DEVICE NOT DETECTED:
+- Check USB cable
+- Install CH340 / CP210x drivers
+- Retry scan
+
+CONNECTION FAILED:
+- Wrong baud rate
+- Port busy
+- Device unsupported
+
+ENGINE NOT STARTING:
+- Missing dependencies
+- Port permission issue
+
+============================================================
+END OF HELP
+============================================================

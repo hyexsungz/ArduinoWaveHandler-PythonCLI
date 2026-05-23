@@ -1,0 +1,90 @@
+{
+  "name": "ARDUINOWAVEHANDLER_WAVEFORMS",
+  "version": "1.0.0",
+  "description": "Waveform definitions for signal generation, detection, and matching engine",
+
+  "waveforms": {
+    "sine_wave": {
+      "type": "continuous",
+      "formula": "sin(2πft)",
+      "default_amplitude": 1.0,
+      "default_frequency": 1.0,
+      "sampling": {
+        "min_samples": 32,
+        "default_samples": 128,
+        "max_samples": 1024
+      },
+      "normalization": "uint8_0_255"
+    },
+
+    "square_wave": {
+      "type": "discrete",
+      "duty_cycle": 0.5,
+      "values": [0, 255],
+      "default_frequency": 1.0,
+      "sampling": {
+        "default_samples": 128
+      }
+    },
+
+    "triangle_wave": {
+      "type": "linear",
+      "ramp_up": true,
+      "ramp_down": true,
+      "default_amplitude": 1.0,
+      "default_frequency": 1.0,
+      "sampling": {
+        "default_samples": 128
+      }
+    },
+
+    "pulse_wave": {
+      "type": "binary",
+      "high": 255,
+      "low": 0,
+      "default_width_ms": 100,
+      "repeat": true
+    },
+
+    "noise_wave": {
+      "type": "random",
+      "distribution": "uniform",
+      "min": 0,
+      "max": 255,
+      "default_level": 10
+    },
+
+    "heartbeat_wave": {
+      "type": "pattern",
+      "sequence": [255, 0, 255, 0, 255],
+      "repeat": true,
+      "interval_ms": 3000
+    }
+  },
+
+  "generation_rules": {
+    "normalize_output": true,
+    "clip_values": true,
+    "datatype": "uint8",
+    "allow_negative": false
+  },
+
+  "analysis_rules": {
+    "enable_fft": false,
+    "compute_similarity": true,
+    "distance_metric": "mae",
+    "threshold_default": 0.85
+  },
+
+  "engine": {
+    "real_time": true,
+    "buffer_size": 256,
+    "update_rate_ms": 10
+  },
+
+  "logging": {
+    "log_generation": false,
+    "log_detection": true,
+    "log_waveforms": false
+  }
+}

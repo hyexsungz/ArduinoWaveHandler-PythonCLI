@@ -1,0 +1,75 @@
+{
+  "name": "ARDUINOWAVEHANDLER_PORTS",
+  "version": "1.0.0",
+  "description": "Serial and USB port configuration for detection, filtering, and auto-connect",
+
+  "scan_settings": {
+    "auto_scan": true,
+    "scan_interval_ms": 2000,
+    "deep_scan": true,
+    "cache_results": true
+  },
+
+  "filters": {
+    "include_keywords": [
+      "arduino",
+      "usb serial",
+      "ch340",
+      "cp210",
+      "ftdi",
+      "ttyusb",
+      "ttyacm",
+      "esp32",
+      "esp8266",
+      "stm32",
+      "teensy",
+      "nano",
+      "uno",
+      "mega",
+      "leonardo",
+      "micro"
+    ],
+
+    "exclude_keywords": [
+      "bluetooth",
+      "virtualbox",
+      "printer",
+      "mouse",
+      "keyboard"
+    ]
+  },
+
+  "port_rules": {
+    "prefer_stable_ports": true,
+    "ignore_system_ports": true,
+    "require_hwid": false,
+    "allow_unknown_devices": true
+  },
+
+  "auto_connect": {
+    "enabled": true,
+    "priority_order": [
+      "arduino_uno",
+      "arduino_mega",
+      "arduino_nano",
+      "esp32",
+      "esp8266",
+      "stm32",
+      "teensy"
+    ],
+    "retry_attempts": 3,
+    "connect_delay_ms": 500
+  },
+
+  "timeouts": {
+    "port_open": 1000,
+    "read_timeout": 1000,
+    "write_timeout": 1000
+  },
+
+  "logging": {
+    "log_connections": true,
+    "log_disconnections": true,
+    "log_errors": true
+  }
+}

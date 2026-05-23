@@ -1,0 +1,99 @@
+{
+  "name": "ARDUINOWAVEHANDLER_BOARDS",
+  "version": "1.0.0",
+  "description": "Board definitions for detection, identification, and auto-connection system",
+
+  "boards": {
+    "arduino_uno": {
+      "label": "Arduino Uno",
+      "mcu": "ATmega328P",
+      "vendor_ids": ["2341", "2A03"],
+      "default_baudrate": 9600,
+      "upload_protocol": "avrdude",
+      "signatures": ["uno", "atmega328", "arduino uno"],
+      "clock_mhz": 16
+    },
+
+    "arduino_mega": {
+      "label": "Arduino Mega 2560",
+      "mcu": "ATmega2560",
+      "vendor_ids": ["2341", "2A03"],
+      "default_baudrate": 115200,
+      "upload_protocol": "avrdude",
+      "signatures": ["mega", "atmega2560", "arduino mega"],
+      "clock_mhz": 16
+    },
+
+    "arduino_nano": {
+      "label": "Arduino Nano",
+      "mcu": "ATmega328P",
+      "vendor_ids": ["1A86", "0403"],
+      "default_baudrate": 57600,
+      "upload_protocol": "avrdude",
+      "signatures": ["nano", "ch340", "ftdi nano"],
+      "clock_mhz": 16
+    },
+
+    "arduino_leonardo": {
+      "label": "Arduino Leonardo",
+      "mcu": "ATmega32U4",
+      "vendor_ids": ["2341", "2A03"],
+      "default_baudrate": 115200,
+      "upload_protocol": "avr109",
+      "signatures": ["leonardo", "atmega32u4"],
+      "clock_mhz": 16
+    },
+
+    "esp32": {
+      "label": "ESP32 Dev Module",
+      "mcu": "ESP32",
+      "vendor_ids": ["10C4", "1A86", "303A"],
+      "default_baudrate": 115200,
+      "upload_protocol": "esptool",
+      "signatures": ["esp32", "silicon labs", "cp210", "wch"],
+      "clock_mhz": 240
+    },
+
+    "esp8266": {
+      "label": "ESP8266 NodeMCU",
+      "mcu": "ESP8266",
+      "vendor_ids": ["1A86", "10C4"],
+      "default_baudrate": 115200,
+      "upload_protocol": "esptool",
+      "signatures": ["esp8266", "nodemcu", "ch340"],
+      "clock_mhz": 80
+    },
+
+    "stm32": {
+      "label": "STM32 Board",
+      "mcu": "STM32F1/F4",
+      "vendor_ids": ["0483"],
+      "default_baudrate": 115200,
+      "upload_protocol": "stlink",
+      "signatures": ["stm32", "st-link", "blackpill", "bluepill"],
+      "clock_mhz": 72
+    },
+
+    "teensy": {
+      "label": "Teensy",
+      "mcu": "ARM Cortex-M",
+      "vendor_ids": ["16C0"],
+      "default_baudrate": 9600,
+      "upload_protocol": "teensy-loader",
+      "signatures": ["teensy", "pjrc"],
+      "clock_mhz": 72
+    }
+  },
+
+  "detection_rules": {
+    "match_priority": [
+      "vendor_id",
+      "signature",
+      "description",
+      "hwid"
+    ],
+    "confidence_threshold": 0.7,
+    "auto_select": true,
+    "fallback_board": "unknown"
+  }
+}

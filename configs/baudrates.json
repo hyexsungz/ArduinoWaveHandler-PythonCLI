@@ -1,0 +1,47 @@
+{
+  "name": "ARDUINOWAVEHANDLER_BAUDRATES",
+  "default": 115200,
+  "auto_detect": true,
+  "safe_mode": false,
+  "baudrates": [
+    300,
+    1200,
+    2400,
+    4800,
+    9600,
+    14400,
+    19200,
+    38400,
+    57600,
+    74880,
+    115200,
+    128000,
+    230400,
+    256000,
+    460800,
+    921600
+  ],
+  "common_profiles": {
+    "arduino_uno": 9600,
+    "arduino_mega": 115200,
+    "arduino_nano": 57600,
+    "esp8266": 115200,
+    "esp32": 115200,
+    "stm32": 115200,
+    "teensy": 9600,
+    "ch340_generic": 115200,
+    "cp210_generic": 115200,
+    "ftdi_generic": 9600
+  },
+  "detection_rules": {
+    "timeout_ms": 1000,
+    "retry_attempts": 3,
+    "fallback_baud": 9600,
+    "scan_delay_ms": 200
+  },
+  "flags": {
+    "enable_auto_baud": true,
+    "strict_mode": false,
+    "log_attempts": true
+  }
+}
